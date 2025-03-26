@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_vehicle_inspection_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name"
+                     t-att-data-oe-id="o and o.id">
+                    <t t-call="sl_fleet_management.custom_header_footer"/>
+                    <!--                <t t-call="web.external_layout">-->
+                    <div class="page">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Property</th>
+                                    <th></th>
+                                    <th>Observation</th>
+                                    <th>Property</th>
+                                    <th></th>
+                                    <th>Observation</th>
+                                </tr>
+                                <tr>
+                                    <th>Engine</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Cabin and Electrical system</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+
+                                <tr style="margin:0px;">
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Engin Oil</span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.engin_oil == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004; </span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center; ">
+                                        <t t-if="o.engin_oil == '2'">
+                                            <span style="font-size: 17px; color: #FFC107;">&#9888;</span> <!-- Observation icon or text -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Wiring</span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center; ">
+                                        <t t-if="o.Wiring == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center; ">
+                                        <t t-if="o.Wiring == '2'">
+                                            <span style="font-size: 17px; color: #FFC107;">&#9888;</span> <!-- Observation icon or text -->
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr style="margin:0px;">
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Oil Filter</span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.oil_filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.oil_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Hour meter</span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Hour_meter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Hour_meter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr style="margin:0px;">
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span>Fuel Filter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Air pressure gauge</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Air_pressure_gauge == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Air_pressure_gauge == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr style="margin:0px;">
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:right">
+                                        <span>Primary Filter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.primary_filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.primary_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>RPM meter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.RPM_meter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.RPM_meter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:right">
+                                        <span>Secondary Filter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.secondary_filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.secondary_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Battery</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Battery == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Battery == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:right">
+                                        <span>Reckor Filter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.reckor_filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.reckor_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Vents</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Vents == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Vents == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span>Air Filter</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>ABS Control</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.ABS_Control == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.ABS_Control == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:right">
+                                        <span>Inner</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.inner_filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.inner_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>AC system Control</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.AC_system_Control == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.AC_system_Control == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:right">
+                                        <span>Outer</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.outer_filter == '1'">
+                                              <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.outer_filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Door and Window operation</span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Door_Window_operation == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Door_Window_operation == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Radiator</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.radiator == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.radiator == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Control Panel</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Control_Panel == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Control_Panel == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Intercooler</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.intercooler == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.intercooler == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Breaker/Fuses</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Breaker_Fuses == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Breaker_Fuses == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Coolant</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Coolant == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Coolant == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Starter Motor</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Starter_Motor == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Starter_Motor == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakages</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Leakages == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Leakages == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Generator wiring</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Generator_wiring == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Generator_wiring == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>All Pipes</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.All_Pipes == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.All_Pipes == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Indicators</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Indicators == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Indicators == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Connecting Belts</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Connecting_Belts == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Connecting_Belts == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Sensors</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Sensors == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Sensors == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Self-Starter</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Self_Starter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Self_Starter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Mechanical switches</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Mechanical_switches == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Mechanical_switches == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Generator</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Generator == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Generator == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Modules</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Modules == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Modules == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Turbocharger</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Turbocharger == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Turbocharger == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Cabin Tilting &amp; Oil Level</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Level == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Level == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Engine Compressor</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Engine_Compressor == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Engine_Compressor == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakages</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Leakages == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Leakages == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>AC Compressor </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.AC_Compressor == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.AC_Compressor == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Other</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Other == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Other == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Cabin Filter</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Filter == '1'">
+                                            <span style="font-size: 17px; color:green; v">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Cabin_Filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+
+                                      <td style="padding-top: 2px; padding-bottom: 1px; text-align: left;" colspan="3">
+                                          <span><b>Differential</b></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Engine Smoke </span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Engine_Smoke == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Engine_Smoke == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px;">
+                                        <span>Differential Oil </span>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Differential_Oil  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 0px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Differential_Oil  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Silicon Fan Coupling </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Silicon_Coupling == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Silicon_Coupling == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Greasing –Ujoint (Propeller) </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Greasing_Propeller  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Greasing_Propeller  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Tensioner Bearing Pully </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Tensioner_Pully == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Tensioner_Pully == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakage </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Differential_leakage  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Differential_leakage  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Abnormal Noise  </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Abnormal_Noise  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Abnormal_Noise  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Wheel Alignment </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Wheel_Alignment  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Wheel_Alignment  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span>Other  </span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Rims </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Rims  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Rims  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span> </span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Nut &amp; Bolts </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Nut_Bolts  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Nut_Bolts  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span> </span>
+                                    </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Noise </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Noise  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Noise  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span><b>Transmission</b></span>
+                                    </td>
+
+                                     <td> </td>
+                                     <td> </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;"  colspan="3">
+                                        <span> Other </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Gear Oil </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Gear_Oil  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Gear_Oil  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+
+                                      <td style="padding-top: 2px; padding-bottom: 1px; text-align: left;" colspan="3">
+                                          <span><b>Fuel System</b></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakage </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Transmission_Leakage  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Transmission_Leakage == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Fuel Pipes </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Pipes== '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Pipes== '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Gear Cables</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Gear_Cables == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Gear_Cables== '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Fuel Injection Pump </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Injection_Pump== '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Injection_Pump== '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Clutch Booster</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Clutch_Booster == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Clutch_Booster == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Feed pump </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Feed_pump == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Feed_pump == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Clutch upper Cylinder</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Clutch_upper_Cylinder == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Clutch_upper_Cylinder == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>High Pressure Pipes </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.High_Pressure_Pipes == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.High_Pressure_Pipes == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake Booster</span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_Booster == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_Booster == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakages </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.fuel_sys_Leakages == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.fuel_sys_Leakages == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake oil </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_oil  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_oil  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Fuel Gauge </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Gauge == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Gauge == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake Adjustments </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_Adjustments  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_Adjustments  == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>ECM </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.ECM == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.ECM == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="3">
+                                        <span>Other </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Fuel Tank </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Tank == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Fuel_Tank == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span><b>Power Steering</b>  </span>
+                                    </td>
+
+                                     <td> </td>
+                                     <td> </td>
+
+                                    <td style="padding-top: 2px; padding-bottom: 1px;"  colspan="3">
+                                        <span> Other </span>
+                                    </td>
+                                 </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Steering operations </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Steering_operations  == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Steering_operations == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span> </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Steering Filter </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Steering_Filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Steering_Filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span> </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakage </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Power_steering_Leakage == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Power_steering_Leakage == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span> </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Other </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span> </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                 </tr>
+
+                                 <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;" colspan="6">
+                                        <span><b>Pneumatic</b></span>
+                                    </td>
+                                 </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake system </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_system == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_system == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                   <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake chamber </span>
+                                   </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_chamber == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_chamber == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr style="margin:0;">
+                                    <td style="padding-top: 2px; padding-bottom: 0px;">
+                                        <span>Air Dryer Filter </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 0px; text-align:center;">
+                                        <t t-if="o.Air_Dryer_Filter == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 0px; text-align: center;">
+                                        <t t-if="o.Air_Dryer_Filter == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake valve </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_valve== '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_valve == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Pressure Level </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Pressure_Level == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Pressure_Level == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Brake lines and joint </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_joint== '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Brake_joint == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>4-Circuit valve </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Circuit_valve == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Circuit_valve == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Leakages </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align:center;">
+                                        <t t-if="o.Leakages_Pneumatic == '1'">
+                                            <span style="font-size: 17px; color:green;">&#10004;</span> <!-- Tick icon -->
+                                        </t>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                        <t t-if="o.Leakages_Pneumatic == '2'">
+                                            <span style="font-size: 17px;color: #FFC107;">&#9888;</span>
+                                        </t>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span>Other </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px;">
+                                        <span> </span>
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                    <td style="padding-top: 2px; padding-bottom: 1px; text-align: center;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                           <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>OBSERVATION RECORD</th>
+                                  <th>FINDINGS</th>
+                                  <th>ACTION TAKEN/SOLUTION</th>
+                                </tr>
+                              </thead>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                           </table>
+
+                        <div>
+                            Inspected by: _____________________,Worked by: ___________________,Reported to: __________________,
+                            <br/>
+                            Reported Date: ______________________,Date: ____________________,Reported Date: __________________,
+                            <br/>
+                            Inspection Date: ______________,
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
